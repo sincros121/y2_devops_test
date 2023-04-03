@@ -1,8 +1,6 @@
 FROM golang:alpine3.17 AS builder
 
 # Installing git for go dependencies
-RUN apk update
-RUN apk -e search git
 RUN apk add git
 
 WORKDIR /build

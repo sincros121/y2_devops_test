@@ -38,7 +38,7 @@ There are two workflows in this repository:
   - CI-CD
   - Terraform<br>
 
-Both of the workflows call templates located in the public workflows [Repository](https://github.com/sincros121/y2_devosp_test_templates).
+Both of the workflows call templates located in the public workflows [Repository](https://github.com/sincros121/y2_devosp_test_templates).<br>
 The CI-CD workflow calls the CI template and only once it's succefully finished it calls the CD template.<br>
 The Terraform workflow calls the terraform-main template which can either plan, destroy or apply the infrastructure.<br>
 **Important note** The called workflows inherit and use github secrets(AWS credentials) located in this repository's settings.

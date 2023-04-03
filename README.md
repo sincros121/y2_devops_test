@@ -33,4 +33,12 @@ Terraform was written in a root_module and modules architecture, in which the ro
 #### Kubernetes and Helm
 The Kubernetes resources are deployed using Helm charts and templates in an "Umbrella chart" architecture, in which the main chart has the services as a dependency and the services have kubernetes templates as a base dependency which get built and configured via values files.
 
-####
+#### CI-CD and Github actions
+There are two workflows in this repository:
+  - CI-CD
+  - Terraform<br>
+
+Both of the workflows call templates located in the public workflows [Repository](https://github.com/sincros121/y2_devosp_test_templates).
+The CI-CD workflow calls the CI template and only once it's succefully finished it calls the CD template.<br>
+The Terraform workflow calls the terraform-main template which can either plan, destroy or apply the infrastructure.<br>
+**Important note** The called workflows inherit and use github secrets(AWS credentials) located in this repository's settings.

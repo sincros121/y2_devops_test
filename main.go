@@ -22,10 +22,11 @@ func getPosts(w http.ResponseWriter, r *http.Request) {
 func createPost(w http.ResponseWriter, r *http.Request) {
   w.Header().Set("Content-Type", "application/json")
   var post Post
-  err := json.NewDecoder(r.Body).Decode(&post)
-  if err != nil{
-  	panic(err)
-  }
+  // Commented out err and related IF since it always throws out panic serving
+  // err := json.NewDecoder(r.Body).Decode(&post)
+  // if err != nil{
+  // 	panic(err)
+  // }
   post.ID = strconv.Itoa(rand.Intn(1000000))
   posts = append(posts, post)
   json.NewEncoder(w).Encode(&post)
@@ -75,7 +76,8 @@ func deletePost(w http.ResponseWriter, r *http.Request) {
 func main() {
   router := mux.NewRouter()
   posts = append(posts, Post{ID: "1", Title: "My first post", Body: "This is the content of my first post"})
-  router.HandleFunc("/posts", createPost).Methods("GET")
+  router.HandleFunc("/", getPosts).Methods("GET") // added getPosts to / route so app wont return 404 on main page
+  router.HandleFunc("/posts", getPosts).Methods("GET") // Changed to getPosts from createPost since GET method should not create new data
   router.HandleFunc("/posts", createPost).Methods("POST")
   router.HandleFunc("/posts/{id}", getPost).Methods("GET")
   router.HandleFunc("/posts/{id}", updatePost).Methods("PUT")

@@ -5,7 +5,7 @@ name: CI-CD
 jobs:
   ci:
     runs-on: ubuntu-latest
-    uses: sincros121/y2-devops-test-templates/.github/workflows/ci.yaml@main
+    uses: sincros121/y2_devosp_test_templates/.github/workflows/ci.yaml@main
     secrets: inherit
     with:
       service_name: go-app
@@ -15,5 +15,5 @@ jobs:
   cd:
     runs-on: ubuntu-latest
     needs: [ci]
-    uses: sincros121/y2-devops-test-templates/.github/workflows/cd.yaml@main
+    uses: sincros121/y2_devosp_test_templates/.github/workflows/cd.yaml@main
     secrets: inherit

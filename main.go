@@ -22,11 +22,10 @@ func getPosts(w http.ResponseWriter, r *http.Request) {
 func createPost(w http.ResponseWriter, r *http.Request) {
   w.Header().Set("Content-Type", "application/json")
   var post Post
-  // Commented out err and related IF since it always throws out panic serving
-  // err := json.NewDecoder(r.Body).Decode(&post)
-  // if err != nil{
-  // 	panic(err)
-  // }
+  err := json.NewDecoder(r.Body).Decode(&post)
+  if err != nil{
+  	panic(err)
+  }
   post.ID = strconv.Itoa(rand.Intn(1000000))
   posts = append(posts, post)
   json.NewEncoder(w).Encode(&post)

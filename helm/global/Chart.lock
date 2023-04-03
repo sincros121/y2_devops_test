@@ -1,0 +1,9 @@
+dependencies:
+- name: base
+  repository: file://../base
+  version: 0.1.0
+- name: go
+  repository: file://../services/go
+  version: 0.1.0
+digest: sha256:2cfb0b123ac3cd8d7864f047fc74d5b2a5fe32f67da7eb7f298d4329723ff9af
+generated: "2023-04-03T14:51:23.5569366+03:00"

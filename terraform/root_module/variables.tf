@@ -58,7 +58,7 @@ variable "node_groups" {
 }
 
 ######
-# EKS
+# ECR
 ######
 variable "ecr_enabled" {
   type = bool

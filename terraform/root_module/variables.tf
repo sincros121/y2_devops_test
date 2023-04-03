@@ -56,3 +56,16 @@ variable "node_groups" {
   type        = any
   description = "List of node group objects"
 }
+
+######
+# EKS
+######
+variable "ecr_enabled" {
+  type = bool
+  description = "Bool flag to enable or disable ECR module"
+}
+
+variable "ecr_repos" {
+  type = any
+  description = "List of ecr repositories objects"
+}

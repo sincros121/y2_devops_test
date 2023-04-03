@@ -17,6 +17,6 @@ variable "node_groups" {
 }
 
 variable "private_subnets" {
-  type = list(string)
+  type        = list(string)
   description = "Private subnet ids for EKS node groups to use"
 }

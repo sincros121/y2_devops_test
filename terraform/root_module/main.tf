@@ -38,3 +38,19 @@ module "eks" {
     module.network
   ]
 }
+
+
+################
+# Provision ECR
+################
+
+module "ecr" {
+  source = "../modules/ecr"
+  count  = var.ecr_enabled ? 1 : 0
+
+  ecr_repos = var.ecr_repos
+
+  depends_on = [
+    module.network
+  ]
+}

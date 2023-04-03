@@ -43,3 +43,15 @@ node_groups = [
     }
   }
 ]
+
+######
+# ECR
+######
+ecr_enabled = true
+
+ecr_repos = [
+  {
+    name = "go_app"
+    image_tag_mutability = "MUTABLE"
+  }
+]

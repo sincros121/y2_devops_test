@@ -1,0 +1,36 @@
+on: 
+  workflow_dispatch:
+    inputs:
+      env:
+        required: true
+        type: choice
+        default: "test2"
+        options:
+          - test2
+      region:
+        required: true
+        default: "us-east-1"
+        type: string
+      terraform-action:
+        required: true
+        type: choice
+        default: "plan"
+        options:
+          - apply
+          - destroy
+      working-directory:
+        type: string
+        default: "terraform/root_module"
+
+name: Terraform
+
+jobs:
+  ci:
+    uses: sincros121/y2_devosp_test_templates/.github/workflows/terraform-main.yaml@main
+    secrets: inherit
+    with:
+      env: ${{ inputs.env }}
+      region: ${{ inputs.region }}
+      teraform-action: ${{ inputs.terraform-action }}
+      working-directory: ${{ inputs.working-directory }}
+

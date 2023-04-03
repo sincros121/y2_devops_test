@@ -4,7 +4,6 @@ name: CI-CD
 
 jobs:
   ci:
-    runs-on: ubuntu-latest
     uses: sincros121/y2_devosp_test_templates/.github/workflows/ci.yaml@main
     secrets: inherit
     with:
@@ -13,7 +12,6 @@ jobs:
       context_path: "."
 
   cd:
-    runs-on: ubuntu-latest
     needs: [ci]
     uses: sincros121/y2_devosp_test_templates/.github/workflows/cd.yaml@main
     secrets: inherit

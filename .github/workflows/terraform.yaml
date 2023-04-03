@@ -16,6 +16,7 @@ on:
         type: choice
         default: "plan"
         options:
+          - plan
           - apply
           - destroy
       working-directory:

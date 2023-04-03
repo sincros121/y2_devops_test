@@ -75,7 +75,7 @@ func deletePost(w http.ResponseWriter, r *http.Request) {
 func main() {
   router := mux.NewRouter()
   posts = append(posts, Post{ID: "1", Title: "My first post", Body: "This is the content of my first post"})
-  router.HandleFunc("/", getPosts).Methods("GET") // added getPosts to / route so app wont return 404 on main page
+  router.HandleFunc("/", getPosts).Methods("GET") // added getPosts to / route so app wont return 404 on main page/empty route
   router.HandleFunc("/posts", getPosts).Methods("GET") // Changed to getPosts from createPost since GET method should not create new data
   router.HandleFunc("/posts", createPost).Methods("POST")
   router.HandleFunc("/posts/{id}", getPost).Methods("GET")
